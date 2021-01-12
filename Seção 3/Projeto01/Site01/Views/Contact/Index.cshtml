@@ -1,0 +1,39 @@
+﻿<html>
+<head>
+    <title>Index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+
+        <form method="post" action="/contact/recebercontato">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite seu nome"
+                @Html.ValidationMessage("nome")
+
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" name="email" class="form-control" id="email" placeholder="Digite seu email"
+                @Html.ValidationMessage("email")
+            </div>
+            <div class="mb-3">
+                <label for="assunto" class="form-label">Assunto</label>
+                <input type="text" name="assunto" class="form-control" id="assunto" placeholder="Digite o assunto"
+                @Html.ValidationMessage("assunto")
+            </div>
+            <div class="mb-3">
+                <label for="mensagem" class="form-label">Mensagem</label>
+                <textarea name="mensagem" class="form-control" id="mensagem"></textarea>
+                @Html.ValidationMessage("mensagem")
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        @ViewBag.Mensagem
+    </div>
+
+</body>
+</html>
