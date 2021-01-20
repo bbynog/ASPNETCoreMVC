@@ -12,6 +12,7 @@ namespace Site01.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.Contact = new Contact();
             return View();
         }
 
@@ -22,16 +23,17 @@ namespace Site01.Controllers
                 //string conteudo = String.Format("Nome: {0},\nEmail: {1},\nAssunto: {2},\nMensagem: {3}\n", contact.Nome, contact.Email, contact.Assunto, contact.Mensagem);
                 //return new ContentResult() { Content = conteudo };
 
+                ViewBag.Contact = new Contact();
                 EnviarEmail.EnviarMensagemContato(contact);
-                ViewBag.Mensagem = "Mensagem enviada co sucesso.";
+                ViewBag.Mensagem = "Mensagem enviada com sucesso.";
 
                 return View("Index");
             }
             else
             {
+                ViewBag.Contact = contact;
                 return View("Index");
-            }
-            
+            }            
         }
 
         /* Obter dados manualmente

@@ -29,7 +29,7 @@ namespace Site01.Library.Mail
             mensagem.IsBodyHtml = true;
             mensagem.Body = "<h1>Formulário de contato</h1> " + conteudo;
 
-            smtp.Send(mensagem);
+            smtp.Send(mensagem);           
         }
     }
 }

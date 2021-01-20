@@ -10,23 +10,23 @@
         <form method="post" action="/contact/recebercontato">
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite seu nome"
+                <input type="text" name="nome" value="@ViewBag.Contact.Nome" class="form-control" id="nome" placeholder="Digite seu nome"
                 @Html.ValidationMessage("nome")
 
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="text" name="email" class="form-control" id="email" placeholder="Digite seu email"
+                <input type="text" name="email" value="@ViewBag.Contact.Email" class="form-control" id="email" placeholder="Digite seu email"
                 @Html.ValidationMessage("email")
             </div>
             <div class="mb-3">
                 <label for="assunto" class="form-label">Assunto</label>
-                <input type="text" name="assunto" class="form-control" id="assunto" placeholder="Digite o assunto"
+                <input type="text" name="assunto" value="@ViewBag.Contact.Assunto" class="form-control" id="assunto" placeholder="Digite o assunto"
                 @Html.ValidationMessage("assunto")
             </div>
             <div class="mb-3">
                 <label for="mensagem" class="form-label">Mensagem</label>
-                <textarea name="mensagem" class="form-control" id="mensagem"></textarea>
+                <textarea name="mensagem" class="form-control" id="mensagem">@ViewBag.Contact.Mensagem</textarea>
                 @Html.ValidationMessage("mensagem")
             </div>
 
