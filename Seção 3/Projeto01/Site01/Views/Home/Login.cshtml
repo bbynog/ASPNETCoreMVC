@@ -1,29 +1,31 @@
-﻿<html>
-<head>
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+﻿@{
+    //Layout = "_Layout";  TANTO FAZ
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Login";
+}
 
-</head>
-<body>
-    <div class="container">
+@if (TempData["MensagemErro"] != null)
+{    
+    <div class="alert alert-danger" role="alert">
+        @TempData["MensagemErro"]
+    </div>
+}
 
-        <form method="post" action="/home/login">
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="text" name="email" value="@ViewBag.Usuario.Email" class="form-control" id="email" placeholder="Digite seu email"
-                       @Html.ValidationMessage("email")
+<form method="post" action="/home/login">
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" name="email" value="@ViewBag.Usuario.Email" class="form-control" id="email" placeholder="Digite seu email"
+               @Html.ValidationMessage("email")
 
-            </div>
-            <div class="mb-3">
-                <label for="senha" class="form-label">Senha</label>
-                <input type="text" name="senha" value="@ViewBag.Usuario.Senha" class="form-control" id="senha" placeholder="Digite sua senha"
-                       @Html.ValidationMessage("senha")
-            </div>           
-
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-        @ViewBag.Mensagem
+    </div>
+    <div class="mb-3">
+        <label for="senha" class="form-label">Senha</label>
+        <input type="password" name="senha" value="@ViewBag.Usuario.Senha" class="form-control" id="senha" placeholder="Digite sua senha"
+               @Html.ValidationMessage("senha")
     </div>
 
-</body>
-</html>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+@ViewBag.Mensagem

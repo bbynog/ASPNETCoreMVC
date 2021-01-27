@@ -21,6 +21,9 @@ namespace Site01
             services.AddDbContext<DatabaseContext>(options=> {
                 options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Site01;Integrated Security=True;");
             });
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,6 +33,7 @@ namespace Site01
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSession();
 
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();

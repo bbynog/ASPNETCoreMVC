@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Site01.Models;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,16 @@ namespace Site01.Controllers
             {
                 if (usuario.Email == "do.not.reply.this.x@gmail.com" && usuario.Senha == "Teste12345")
                 {
+                    /* Add Session
+                     * HttpContext.Session.SetString("Login", "true");
+                     * HttpContext.Session.SetInt32("UserID", 1);
+                     * HttpContext.Session.SetString("Login", Serialize Object > String(NewtonSoft));
+                     * 
+                     * Read Session
+                     * string login = HttpContext.Session.GetString("Login");
+                     */
+                    HttpContext.Session.SetString("Login", "true");
+
                     ViewBag.Usuario = new Usuario();
                     return RedirectToAction("Index", "Palavra");
                 }
@@ -46,6 +57,12 @@ namespace Site01.Controllers
                 ViewBag.Mensagem = "Os dados informados são inválidos";
                 return View();
             }
+        }
+
+        public ActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
