@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Sqlite;
 
 namespace Site01
 {
@@ -19,7 +20,8 @@ namespace Site01
         {
             services.AddMvc();
             services.AddDbContext<DatabaseContext>(options=> {
-                options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Site01;Integrated Security=True;");
+                //options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Site01;Integrated Security=True;");
+                options.UseSqlite("Data Source=Database\\site01.db");
             });
 
             services.AddDistributedMemoryCache();
