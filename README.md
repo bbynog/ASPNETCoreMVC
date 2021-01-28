@@ -1,1 +1,1 @@
-# ASPNETCoreMVC
+# Practicing .NET Core
